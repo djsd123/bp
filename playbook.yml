@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+    - name: Install docker
+      yum: name=docker-ce
+      become: true
+    - name: Start docker daemon
+      systemd: name=docker enabled=yes state=started
+      become: true
+    - name: Build Image
+      docker_image:
+        path: /vagrant
+        name: bp
+      become: true
+    - name: Run the container
+      docker:
+        name: nginx
+        image: bp
+        state: started
+        ports:
+          - 8081:80
+      become: true
