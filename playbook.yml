@@ -13,7 +13,7 @@
         name: bp
       become: true
     - name: Run the container
-      docker:
+      docker_container:
         name: nginx
         image: bp
         state: started
