@@ -9,6 +9,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/latest-stable/main/" >> /etc/apk/re
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD hello_world.conf /etc/nginx/conf.d/hello_world.conf
 ADD index.html /www/index.html
+ADD download.png /www
 
 EXPOSE 80
 
